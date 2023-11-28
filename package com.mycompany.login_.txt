@@ -1,0 +1,44 @@
+package com.mycompany.login;
+
+import java.util.Scanner;
+public class Login {
+
+    private final String username;
+    private final String password; 
+    private boolean correcto; 
+
+     public Login (String username, String password){
+         this.username = username;
+         this.password = password; 
+         this.correcto= false;
+     }
+        
+    public boolean usuarioCorrecto(String usernameC, String passwordC){
+        return username.equals(usernameC)&& password.equals(passwordC);
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner (System.in); 
+        String userCorrecto = "lin";
+        String passwordCorrecto= "holamundo"; 
+        Login login = new Login (userCorrecto, passwordCorrecto); 
+        
+        do{
+        System.out.println ("Username: "  );
+        String username= scanner.nextLine();
+        System.out.println("Password: " );
+        String password = scanner.nextLine(); 
+        
+      
+        if (login.usuarioCorrecto(username, password)){
+            login.correcto = true;
+            System.out.println("Usuario y contraseña correcta.");
+            System.out.println("INGRESANDO....");
+        }else
+            System.out.println("Usuario o contraseña incorrecto, por favor vuelta a intentar.");       
+        
+        }while (!login.correcto);
+    }
+}
+
+
